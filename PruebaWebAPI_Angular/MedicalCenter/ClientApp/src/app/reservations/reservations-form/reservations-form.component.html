@@ -1,0 +1,158 @@
+<h1>{{modoEdicion ? 'Editar' : 'Agregar'}} Persona</h1>
+<form class="form-horizontal" novalidate
+      (ngSubmit)="save()" [formGroup]="formGroup">
+  <fieldset>
+
+    <div class="form-group"
+         [ngClass]="{'has-error': (formGroup.get('title').touched || formGroup.get('title').dirty) && !formGroup.get('title').valid }">
+      <label class="col-md-2 control-label"
+             for="title">Titulo</label>
+
+      <div class="col-md-8">
+        <input class="form-control"
+               id="title"
+               type="text"
+               required
+               formControlName="title" />
+        <span class="help-block" *ngIf="(formGroup.get('title').touched || formGroup.get('title').dirty) && formGroup.get('title').errors">
+          <span *ngIf="formGroup.get('title').errors.required">
+            El titulo es requerido
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group"
+         [ngClass]="{'has-error': (formGroup.get('date').touched || formGroup.get('date').dirty) && !formGroup.get('date').valid }">
+      <label class="col-md-2 control-label"
+             for="date">Fecha</label>
+
+      <div class="col-md-8">
+        <input class="form-control"
+               id="date"
+               type="date"
+               required
+               formControlName="date" />
+        <span class="help-block" *ngIf="(formGroup.get('date').touched || formGroup.get('date').dirty) && formGroup.get('date').errors">
+          <span *ngIf="formGroup.get('date').errors.required">
+            La fecha es requerida
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group"
+         [ngClass]="{'has-error': (formGroup.get('pacient').touched || formGroup.get('pacient').dirty) && !formGroup.get('pacient').valid }">
+      <label class="col-md-2 control-label"
+             for="pacient">Paciente</label>
+
+      <div class="col-md-8">
+        <input class="form-control"
+               id="pacient"
+               type="text"
+               required
+               formControlName="pacient" />
+        <span class="help-block" *ngIf="(formGroup.get('pacient').touched || formGroup.get('pacient').dirty) && formGroup.get('pacient').errors">
+          <span *ngIf="formGroup.get('pacient').errors.required">
+            El campo Fecha es requerido
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group"
+         [ngClass]="{'has-error': (formGroup.get('symtoms').touched || formGroup.get('symtoms').dirty) && !formGroup.get('symtoms').valid }">
+      <label class="col-md-2 control-label"
+             for="symtoms">Sintomas</label>
+
+      <div class="col-md-8">
+        <input class="form-control"
+               id="symtoms"
+               type="text"
+               required
+               formControlName="symtoms" />
+        <span class="help-block" *ngIf="(formGroup.get('symtoms').touched || formGroup.get('symtoms').dirty) && formGroup.get('symtoms').errors">
+          <span *ngIf="formGroup.get('symtoms').errors.required">
+            Los sintomas son requeridos
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group"
+         [ngClass]="{'has-error': (formGroup.get('sick').touched || formGroup.get('sick').dirty) && !formGroup.get('sick').valid }">
+      <label class="col-md-2 control-label"
+             for="sick">Diagnostico</label>
+
+      <div class="col-md-8">
+        <input class="form-control"
+               id="sick"
+               type="text"
+               required
+               formControlName="sick" />
+        <span class="help-block" *ngIf="(formGroup.get('sick').touched || formGroup.get('sick').dirty) && formGroup.get('sick').errors">
+          <span *ngIf="formGroup.get('sick').errors.required">
+            El Diagnostico es requerido
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group"
+         [ngClass]="{'has-error': (formGroup.get('medicaments').touched || formGroup.get('medicaments').dirty) && !formGroup.get('medicaments').valid }">
+      <label class="col-md-2 control-label"
+             for="medicaments">Medicamentos</label>
+
+      <div class="col-md-8">
+        <input class="form-control"
+               id="medicaments"
+               type="text"
+               required
+               formControlName="medicaments" />
+        <span class="help-block" *ngIf="(formGroup.get('medicaments').touched || formGroup.get('medicaments').dirty) && formGroup.get('medicaments').errors">
+          <span *ngIf="formGroup.get('medicaments').errors.required">
+            Los Medicamentos son requeridos
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group"
+         [ngClass]="{'has-error': (formGroup.get('medic').touched || formGroup.get('medic').dirty) && !formGroup.get('medic').valid }">
+      <label class="col-md-2 control-label"
+             for="medic">Medico</label>
+
+      <div class="col-md-8">
+        <input class="form-control"
+               id="medic"
+               type="text"
+               required
+               formControlName="medic" />
+        <span class="help-block" *ngIf="(formGroup.get('medic').touched || formGroup.get('medic').dirty) && formGroup.get('medic').errors">
+          <span *ngIf="formGroup.get('medic').errors.required">
+            El Medico es requerido
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-4 col-md-offset-2">
+        <span>
+          <button class="btn btn-primary"
+                  type="submit"
+                  [disabled]="!formGroup.valid">
+            Salvar
+          </button>
+          <button class="btn"
+                  type="button"
+                  [routerLink]='["/"]'>
+            Cancelar
+          </button>
+        </span>
+
+      </div>
+
+    </div>
+  </fieldset>
+</form>

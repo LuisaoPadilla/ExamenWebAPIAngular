@@ -1,0 +1,38 @@
+<h1>Agenda</h1>
+
+<p *ngIf="!reservations"><em>Loading...</em></p>
+
+<button [routerLink]='["/citas-agregar"]' class="btn-primary">Agregar Cita</button>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="reservations">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Titulo</th>
+      <th>Fecha</th>
+      <th>Paciente.</th>
+      <th>Sitomas</th>
+      <th>Diagnostico</th>
+      <th>Medicamento</th>
+      <th>Medico</th>
+      <th>Estatus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cita of reservations">
+      <td>{{ cita.id }}</td>
+      <td>{{ cita.title }}</td>
+      <td>{{ cita.date }}</td>
+      <td>{{ cita.pacient }}</td>
+      <td>{{ cita.symtoms }}</td>
+      <td>{{ cita.sick }}</td>
+      <td>{{ cita.medicaments }}</td>
+      <td>{{ cita.medic }}</td>
+      <td>{{ cita.status }}</td>
+      <td>
+        <button class="btn btn-primary" [routerLink]='["/citas-editar/" + cita.idCita]'>Editar</button>
+        <button class="btn btn-danger">Borrar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
